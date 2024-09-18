@@ -27,8 +27,12 @@ export class LoginPage implements OnInit {
 
     if (username === 'Usuario1' && password === 'MiClav3'){
       this.navCrtl.navigateRoot('/home');
+    }
+    else if (username === 'Profe' && password === 'Patito'){
+      this.navCrtl.navigateRoot('/home')
     }else {
       alert('Credenciales incorrectas, intentelo nuevamente');
     }
+    
   }
 }
