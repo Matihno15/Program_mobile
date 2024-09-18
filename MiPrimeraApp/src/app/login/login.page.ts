@@ -26,8 +26,7 @@ export class LoginPage implements OnInit {
     const {username, password} = this.loginForm.value;
 
     if (username === 'Usuario1' && password === 'MiClav3'){
-      this.navCrtl.navigateRoot('/home');
-<<<<<<< HEAD
+      this.navCrtl.navigateRoot('/main-estudiantes');
     }
     else if (username === 'Profe' && password === 'Patito'){
       this.navCrtl.navigateRoot('/home')
@@ -35,10 +34,5 @@ export class LoginPage implements OnInit {
       alert('Credenciales incorrectas, intentelo nuevamente');
     }
     
-=======
-    }else {
-      alert('Credenciales incorrectas, intentelo nuevamente');
-    }
->>>>>>> 44584af7b023624ca24f417668d4b7affa1f21e1
   }
 }
