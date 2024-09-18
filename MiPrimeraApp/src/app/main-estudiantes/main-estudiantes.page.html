@@ -1,0 +1,16 @@
+<ion-header>  
+  <ion-toolbar>
+    <ion-title>Menú Principal</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-label>Bienvenido {{ nombreUsuario }}</ion-label>
+  <ion-list>
+    <ion-item button (click)="navigateTo('mis-asignaturas')">Mis Asignaturas</ion-item>
+    <ion-item button (click)="navigateTo('mi-asistencia')">Mis Asistencias</ion-item>
+    <ion-item button (click)="navigateTo('registrar-asistencia')">Registrar Asistencia</ion-item>
+    <ion-item button (click)="navigateTo('cambiar-clave')">Cambiar Clave</ion-item>
+    <ion-item>Logout</ion-item>
+  </ion-list>
+</ion-content>
