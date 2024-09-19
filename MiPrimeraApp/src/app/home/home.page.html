@@ -1,9 +1,24 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
+      <img src="assets/DuocLogo.png" alt="No disponible" id="duoclogo">
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
+  <div id="container">
+    <h3>Opciones de usuario</h3>
+
+    <ion-button [routerLink]="['/login']" shape="round">
+      <ion-icon class="icon-login" name="person-sharp"></ion-icon>
+      Iniciar sesión
+    </ion-button>
+    <br><br>
+    <ion-button [routerLink]="['/register']" shape="round">
+      <ion-icon class="icon-login" name="person-add-sharp"></ion-icon>
+      Registrarse
+    </ion-button>
+
+  </div>
 </ion-content>

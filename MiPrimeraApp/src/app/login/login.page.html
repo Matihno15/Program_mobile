@@ -1,11 +1,15 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Login</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <img src="assets/DuocLogo.png" alt="No disponible" id="duoclogo">
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-content>
+    <h3 id="h3login">Login</h3>
     <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
       <ion-item>
         <ion-label position="floating">Usuario</ion-label>
