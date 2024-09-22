@@ -12,7 +12,7 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'home',
     pathMatch: 'full'
   },
   {
@@ -22,7 +22,8 @@ const routes: Routes = [
   {
     path: 'main-estudiantes',
     loadChildren: () => import('./main-estudiantes/main-estudiantes.module').then( m => m.MainEstudiantesPageModule)
-  },  {
+  },
+  {
     path: 'mi-asistencia',
     loadChildren: () => import('./mi-asistencia/mi-asistencia.module').then( m => m.MiAsistenciaPageModule)
   },
@@ -41,7 +42,11 @@ const routes: Routes = [
   {
     path: 'registrar-asistencia',
     loadChildren: () => import('./registrar-asistencia/registrar-asistencia.module').then( m => m.RegistrarAsistenciaPageModule)
+  },  {
+    path: 'register',
+    loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
   },
+
 
 
 

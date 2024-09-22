@@ -14,4 +14,8 @@ export class MainEstudiantesPage {
   navigateTo(page: string) {
     this.router.navigate([`/${page}`]);
   }
+
+  logout() {
+    this.router.navigate(['/login'], {replaceUrl: true});
+  }
 }

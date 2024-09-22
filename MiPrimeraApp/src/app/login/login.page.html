@@ -1,31 +1,28 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Inicio de Sesion</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <img src="assets/DuocLogo.png" alt="No disponible" id="duoclogo">
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true" class="ion-padding">
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Iniciar Sesión</ion-card-title>
-    </ion-card-header>
-    <ion-card-content>
-      <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
-        <ion-item>
-          <ion-label position="floating">Usuario</ion-label>
-          <ion-input formControlName="username"></ion-input>
-        </ion-item>
-    
-        <ion-item>
-          <ion-label position="floating">Contraseña</ion-label>
-          <ion-input type="password" formControlName="password"></ion-input>
-        </ion-item>
-    
-        <ion-button expand="full" type="submit" [disabled]="!loginForm.valid" class="ion-margin-top">Iniciar Sesión</ion-button>
-      </form>
-      <ion-text class="ion-text-center">
-        <a href="#">Restablecer Contraseña</a>
-      </ion-text>
-    </ion-card-content>
-  </ion-card>
+<ion-content [fullscreen]="true">
+  <ion-content>
+    <h3 id="h3login">Login</h3>
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+      <ion-item>
+        <ion-label position="floating">Usuario</ion-label>
+        <ion-input formControlName="username"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
+  
+      <ion-button expand="full" type="submit" [disabled]="!loginForm.valid">Iniciar Sesión</ion-button>
+    </form>
+    <a href="#">Restablecer Contraseña</a>
+  </ion-content>
 </ion-content>
