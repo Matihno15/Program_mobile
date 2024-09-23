@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Menú Principal</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-button (click)="mostrarQr()">
+    Código QR
+  </ion-button>
+
+  <img *ngIf="SwQr" src="assets/Qr.png" alt="Código QR" />
+
+  <ion-button expand="full" color="danger" (click)="logout()">
+    <ion-icon slot="start" name="log-out-outline"></ion-icon>
+    Logout
+  </ion-button>
+</ion-content>
+
+<footer>
+  <ion-toolbar>
+    <ion-title>Duoc UC</ion-title>
+  </ion-toolbar>
+</footer>

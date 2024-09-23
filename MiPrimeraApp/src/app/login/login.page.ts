@@ -29,7 +29,7 @@ export class LoginPage implements OnInit {
       this.navCrtl.navigateRoot('/main-estudiantes');
     }
     else if (username === 'Profe' && password === 'Patito'){
-      this.navCrtl.navigateRoot('/home')
+      this.navCrtl.navigateRoot('/main-profe')
     }else {
       alert('Credenciales incorrectas, intentelo nuevamente');
     }
