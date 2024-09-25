@@ -50,6 +50,10 @@ const routes: Routes = [
     path: 'main-profe',
     loadChildren: () => import('./main-profe/main-profe.module').then( m => m.MainProfePageModule)
   },
+  {
+    path: 'recuperar-contrasena',
+    loadChildren: () => import('./recuperar-contrasena/recuperar-contrasena.module').then( m => m.RecuperarContrasenaPageModule)
+  },
 
 
 

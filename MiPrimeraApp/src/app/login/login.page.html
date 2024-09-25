@@ -23,6 +23,6 @@
   
       <ion-button expand="block" type="submit" [disabled]="!loginForm.valid">Iniciar Sesión</ion-button>
     </form>
-    <a href="#">Restablecer Contraseña</a>
+    <a (click)="navigateToRecoverPassword()">Restablecer Contraseña</a>
   </div>
 </ion-content>

@@ -3,32 +3,28 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/main"></ion-back-button>
     </ion-buttons>
-    <ion-title>Mi asistencia</ion-title>
+    <img src="assets/DuocLogo.png" alt="No disponible" id="duoclogo">
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Mi asistencia</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <div id="container">
+    <h3 id="h3asist">Asistencia</h3>
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-title size="large">Mi asistencia</ion-title>
+      </ion-toolbar>
+    </ion-header>
 
-  <ion-list>
-    <ion-item *ngFor="let asistencia of asistencias">
-      <ion-label>
-        <h2>{{ asistencia.asignatura }}</h2>
-        <p>{{ asistencia.fecha }}</p>
-        <p>{{ asistencia.hora }}</p>
-        <p>{{ asistencia.presente ? 'Presente' : 'Ausente' }}</p>
-      </ion-label>
-    </ion-item>
-  </ion-list>
+    <ion-list>
+      <ion-item *ngFor="let asistencia of asistencias">
+        <ion-label>
+          <h2>{{ asistencia.asignatura }}</h2>
+          <p>{{ asistencia.fecha }}</p>
+          <p>{{ asistencia.hora }}</p>
+          <p>{{ asistencia.presente ? 'Presente' : 'Ausente' }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
 </ion-content>
-
-
-<footer>
-  <ion-toolbar>
-    <ion-title>Duoc UC</ion-title>
-  </ion-toolbar>
-

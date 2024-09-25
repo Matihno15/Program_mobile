@@ -1,52 +1,49 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Menú Principal</ion-title>
+    <img src="assets/DuocLogo.png" alt="No disponible" id="duoclogo">
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-card>
-    <ion-card-header>
-      <ion-card-title>Bienvenido {{ nombreUsuario }}</ion-card-title>
-    </ion-card-header>
-  </ion-card>
+  <div id="container">
+    <h3 id="h3mainA">Menu</h3>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>Bienvenido {{ nombreUsuario }}</ion-card-title>
+      </ion-card-header>
+    </ion-card>
 
-  <ion-list>
-    <ion-item>
-      <ion-button expand="full" (click)="navigateTo('mis-asignaturas')">
-        <ion-icon slot="start" name="book-outline"></ion-icon>
-        Mis Asignaturas
-      </ion-button>
-    </ion-item>
-    <ion-item>
-      <ion-button expand="full" (click)="navigateTo('mi-asistencia')">
-        <ion-icon slot="start" name="checkmark-done-outline"></ion-icon>
-        Mis Asistencias
-      </ion-button>
-    </ion-item>
-    <ion-item>
-      <ion-button expand="full" (click)="navigateTo('registrar-asistencia')">
-        <ion-icon slot="start" name="create-outline"></ion-icon>
-        Registrar Asistencia
-      </ion-button>
-    </ion-item>
-    <ion-item>
-      <ion-button expand="full" (click)="navigateTo('cambiar-clave')">
-        <ion-icon slot="start" name="key-outline"></ion-icon>
-        Cambiar Clave
-      </ion-button>
-    </ion-item>
-    <ion-item>
-      <ion-button expand="full" color="danger" (click)="logout()">
-        <ion-icon slot="start" name="log-out-outline"></ion-icon>
-        Logout
-      </ion-button>
-    </ion-item>
-  </ion-list>
+    <ion-list>
+      <ion-item>
+        <ion-button expand="full" (click)="navigateTo('mis-asignaturas')">
+          <ion-icon slot="start" name="book-outline"></ion-icon>
+          Mis Asignaturas
+        </ion-button>
+      </ion-item>
+      <ion-item>
+        <ion-button expand="full" (click)="navigateTo('mi-asistencia')">
+          <ion-icon slot="start" name="checkmark-done-outline"></ion-icon>
+          Mis Asistencias
+        </ion-button>
+      </ion-item>
+      <ion-item>
+        <ion-button expand="full" (click)="navigateTo('registrar-asistencia')">
+          <ion-icon slot="start" name="create-outline"></ion-icon>
+          Registrar Asistencia
+        </ion-button>
+      </ion-item>
+      <ion-item>
+        <ion-button expand="full" (click)="navigateTo('cambiar-clave')">
+          <ion-icon slot="start" name="key-outline"></ion-icon>
+          Cambiar Clave
+        </ion-button>
+      </ion-item>
+      <ion-item>
+        <ion-button expand="full" color="danger" (click)="logout()">
+          <ion-icon slot="start" name="log-out-outline"></ion-icon>
+          Logout
+        </ion-button>
+      </ion-item>
+    </ion-list>
+  </div>
 </ion-content>
-
-<footer>
-  <ion-toolbar>
-    <ion-title>Duoc UC</ion-title>
-  </ion-toolbar>
-</footer>

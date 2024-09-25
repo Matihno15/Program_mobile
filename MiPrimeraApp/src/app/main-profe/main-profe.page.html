@@ -5,16 +5,19 @@
 </ion-header>
 
 <ion-content>
-  <ion-button (click)="mostrarQr()">
-    Código QR
-  </ion-button>
+  <div id="container">
+    <h3 id="qrasist">QR asistencia</h3>
+    <ion-button (click)="mostrarQr()">
+      Código QR
+    </ion-button>
 
-  <img *ngIf="SwQr" src="assets/Qr.png" alt="Código QR" />
+    <img *ngIf="SwQr" src="assets/Qr.png" alt="Código QR" />
 
-  <ion-button expand="full" color="danger" (click)="logout()">
-    <ion-icon slot="start" name="log-out-outline"></ion-icon>
-    Logout
-  </ion-button>
+    <ion-button expand="full" color="danger" (click)="logout()">
+      <ion-icon slot="start" name="log-out-outline"></ion-icon>
+      Logout
+    </ion-button>
+  </div>
 </ion-content>
 
 <footer>

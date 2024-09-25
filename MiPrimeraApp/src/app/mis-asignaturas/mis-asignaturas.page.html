@@ -3,28 +3,25 @@
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/main"></ion-back-button>
     </ion-buttons>
-    <ion-title>Mis asignaturas</ion-title>
+    <img src="assets/DuocLogo.png" alt="No disponible" id="duoclogo">
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-list>
-    <ion-card *ngFor="let asignatura of asignaturas">
-      <ion-card-header>
-        <ion-card-title>{{ asignatura.nombre }}</ion-card-title>
-      </ion-card-header>
-      <ion-card-content>
-        <p><strong>Profesor:</strong>{{asignatura.profesor}}</p>
-        <p><strong>Horario:</strong>{{asignatura.horario}}</p>
-        <p><strong>Sala:</strong>{{asignatura.sala}}</p>
-      </ion-card-content>
-    </ion-card>
-  </ion-list>
+  <div id="container">
+    <h3 id="h3asigna">Asignaturas</h3>
+    <ion-list>
+      <ion-card *ngFor="let asignatura of asignaturas">
+        <ion-card-header>
+          <ion-card-title>{{ asignatura.nombre }}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <p><strong>Profesor:</strong>{{asignatura.profesor}}</p>
+          <p><strong>Horario:</strong>{{asignatura.horario}}</p>
+          <p><strong>Sala:</strong>{{asignatura.sala}}</p>
+        </ion-card-content>
+      </ion-card>
+    </ion-list>
+  </div>
 </ion-content>
-
-<footer>
-  <ion-toolbar>
-    <ion-title>Duoc UC</ion-title>
-  </ion-toolbar>
-
   
