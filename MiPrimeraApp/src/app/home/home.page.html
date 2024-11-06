@@ -10,15 +10,14 @@
   <div id="container">
     <h3>Opciones de usuario</h3>
 
-    <ion-button [routerLink]="['/login']" shape="round">
+    <ion-button (click)="navigateToLogin()" shape="round">
       <ion-icon class="icon-login" name="person-sharp"></ion-icon>
       Iniciar sesión
     </ion-button>
     <br><br>
-    <ion-button [routerLink]="['/register']" shape="round">
+    <ion-button (click)="navigateToRegister()" shape="round">
       <ion-icon class="icon-login" name="person-add-sharp"></ion-icon>
       Registrarse
     </ion-button>
-
   </div>
 </ion-content>

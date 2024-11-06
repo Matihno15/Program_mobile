@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 
 import { MiAsistenciaPageRoutingModule } from './mi-asistencia-routing.module';
-import { MiAsistenciaPage } from './mi-asistencia.page'; // Asegúrate de que el nombre coincida
+import { MiAsistenciaPage } from './mi-asistencia.page';
 
 @NgModule({
   imports: [
@@ -15,4 +15,4 @@ import { MiAsistenciaPage } from './mi-asistencia.page'; // Asegúrate de que el
   ],
   declarations: [MiAsistenciaPage]
 })
-export class MiAsistenciaPageModule {}
+export class MiAsistenciaPageModule { }

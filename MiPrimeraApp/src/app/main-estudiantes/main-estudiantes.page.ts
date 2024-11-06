@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -6,16 +6,30 @@ import { Router } from '@angular/router';
   templateUrl: './main-estudiantes.page.html',
   styleUrls: ['./main-estudiantes.page.scss'],
 })
-export class MainEstudiantesPage {
-  nombreUsuario: string = 'Juan Pérez';
+export class MainEstudiantesPage implements OnInit {
+  nombreUsuario: string = '';
 
   constructor(private router: Router) {}
+
+  ngOnInit() {
+    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser') ?? '{}');
+    if (loggedInUser) {
+      this.nombreUsuario = loggedInUser.name;
+    } else {
+      this.router.navigate(['/login']);
+    }
+  }
 
   navigateTo(page: string) {
     this.router.navigate([`/${page}`]);
   }
 
   logout() {
-    this.router.navigate(['/login'], {replaceUrl: true});
+    localStorage.removeItem('loggedInUser');
+    this.router.navigate(['/login']);
+  }
+
+  goBack() {
+    this.router.navigate(['/main-estudiantes']);
   }
 }

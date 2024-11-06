@@ -1,42 +1,50 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { NavController } from '@ionic/angular';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
-export class LoginPage implements OnInit {
+export class LoginPage {
   loginForm: FormGroup;
 
   constructor(
-    private formBuilder: FormBuilder,
-    private navCrtl: NavController,
-    private router: Router
+    private fb: FormBuilder,
+    private router: Router,
+    private http: HttpClient
   ) {
-    this.loginForm = this.formBuilder.group({
+    this.loginForm = this.fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required]
     });
   }
 
-  ngOnInit() {}
-
   onLogin() {
     const { username, password } = this.loginForm.value;
 
-    if (username === 'Usuario1' && password === 'MiClav3') {
-      this.navCrtl.navigateRoot('/main-estudiantes');
-    } else if (username === 'Profe' && password === 'Patito') {
-      this.navCrtl.navigateRoot('/main-profe');
-    } else {
-      alert('Credenciales incorrectas, inténtelo nuevamente');
-    }
-  }
-
-  navigateToRecoverPassword() {
-    this.router.navigate(['/recuperar-contrasena']);
+    // Verificar si el usuario es un estudiante
+    this.http.get<any[]>(`http://localhost:3000/users?username=${username}&password=${password}`)
+      .subscribe(users => {
+        if (users.length > 0) {
+          const user = users[0];
+          localStorage.setItem('loggedInUser', JSON.stringify(user));
+          this.router.navigate(['/main-estudiantes']);
+        } else {
+          // Verificar si el usuario es un profesor
+          this.http.get<any[]>(`http://localhost:3000/profesores?username=${username}&password=${password}`)
+            .subscribe(profesores => {
+              if (profesores.length > 0) {
+                const profesor = profesores[0];
+                localStorage.setItem('loggedInUser', JSON.stringify(profesor));
+                this.router.navigate(['/main-profesor']);
+              } else {
+                alert('Usuario o contraseña incorrectos');
+              }
+            });
+        }
+      });
   }
 }

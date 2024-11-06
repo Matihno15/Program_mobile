@@ -1,11 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-button (click)="VolverMenuEst()">
-        <ion-icon name="arrow-back"></ion-icon>
-      </ion-button>
-    </ion-buttons>
-    <img src="assets/DuocLogo.png" alt="No disponible" id="duoclogo">
+    <ion-title>Cambiar Clave</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -21,22 +16,14 @@
           <ion-item>
             <ion-label position="floating">Contraseña Actual</ion-label>
             <ion-input [(ngModel)]="currentPassword" [type]="showCurrentPassword ? 'text' : 'password'" name="currentPassword"></ion-input>
-            <ion-icon name="eye" slot="end" (click)="MostrarcontraActual()"></ion-icon>
+            <ion-icon name="eye" slot="end" (click)="toggleShowCurrentPassword()"></ion-icon>
           </ion-item>
-
           <ion-item>
             <ion-label position="floating">Nueva Contraseña</ion-label>
             <ion-input [(ngModel)]="newPassword" [type]="showNewPassword ? 'text' : 'password'" name="newPassword"></ion-input>
-            <ion-icon name="eye" slot="end" (click)="Mostrarcontranueva()"></ion-icon>
+            <ion-icon name="eye" slot="end" (click)="toggleShowNewPassword()"></ion-icon>
           </ion-item>
-
-          <ion-item>
-            <ion-label position="floating">Confirmar Nueva Contraseña</ion-label>
-            <ion-input [(ngModel)]="confirmPassword" [type]="showConfirmPassword ? 'text' : 'password'" name="confirmPassword"></ion-input>
-            <ion-icon name="eye" slot="end" (click)="Mostrarconfirmarcontra()"></ion-icon>
-          </ion-item>
-
-          <ion-button expand="full" type="submit" color="primary" style="margin-top: 20px;">Cambiar Contraseña</ion-button>
+          <ion-button expand="full" type="submit">Actualizar</ion-button>
         </form>
       </ion-card-content>
     </ion-card>

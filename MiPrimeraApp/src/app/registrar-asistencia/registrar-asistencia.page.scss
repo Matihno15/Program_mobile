@@ -22,3 +22,22 @@
 ion-content {
     --background: url('/assets/Duoc.jpg') no-repeat center center / cover;
 }
+
+ion-item {
+    margin-bottom: 16px;
+  }
+  
+  ion-input {
+    --padding-start: 0;
+    --padding-end: 0;
+    --min-height: 44px;
+    --height: auto;
+    --label-margin-bottom: 8px;
+    --width: 100%;
+    font-size: 14px;
+  }
+  
+  ion-label {
+    --padding-bottom: 8px;
+    font-size: 14px;
+  }

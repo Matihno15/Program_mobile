@@ -1,28 +1,18 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/main"></ion-back-button>
-    </ion-buttons>
-    <img src="assets/DuocLogo.png" alt="No disponible" id="duoclogo">
+    <ion-title>Mi Asistencia</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <div id="container">
-    <h3 id="h3asist">Asistencia</h3>
-    <ion-header collapse="condense">
-      <ion-toolbar>
-        <ion-title size="large">Mi asistencia</ion-title>
-      </ion-toolbar>
-    </ion-header>
-
+    <h3>Listado de Asistencias</h3>
     <ion-list>
       <ion-item *ngFor="let asistencia of asistencias">
         <ion-label>
-          <h2>{{ asistencia.asignatura }}</h2>
-          <p>{{ asistencia.fecha }}</p>
-          <p>{{ asistencia.hora }}</p>
-          <p>{{ asistencia.presente ? 'Presente' : 'Ausente' }}</p>
+          <h2>{{ asistencia.className }}</h2>
+          <p>Asignatura: {{ asistencia.subject }}</p>
+          <p>Fecha: {{ asistencia.date }}</p>
         </ion-label>
       </ion-item>
     </ion-list>

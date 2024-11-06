@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AlertController } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-register',
@@ -8,41 +9,43 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['./register.page.scss'],
 })
 export class RegisterPage {
-
   registerForm: FormGroup;
 
-  constructor(private formBuilder: FormBuilder, private alertController: AlertController) {
-    this.registerForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email, this.domainValidator]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      confirmPassword: ['', [Validators.required]]
-    }, { validator: this.passwordMatchValidator });
-  }
-
-  passwordMatchValidator(form: FormGroup) {
-    const password = form.get('password')?.value;
-    const confirmPassword = form.get('confirmPassword')?.value;
-    return password === confirmPassword ? null : { mismatch: true };
-  }
-
-  domainValidator(control: any) {
-    const email = control.value;
-    const domainRegex = /^[a-zA-Z0-9._%+-]+@(duocuc\.cl|profesor\.duoc\.cl)$/;
-    return domainRegex.test(email) ? null : { invalidDomain: true };
-  }
-
-  async presentAlert() {
-    const alert = await this.alertController.create({
-      header: 'Registro Completo',
-      message: 'Su registro ha sido completado con éxito.',
-      buttons: ['OK']
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private http: HttpClient
+  ) {
+    this.registerForm = this.fb.group({
+      username: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required]
     });
-    await alert.present();
   }
 
   onSubmit() {
-    if (this.registerForm.valid) {
-      this.presentAlert();
-    }
+    const newUser = this.registerForm.value;
+
+    // Obtener la lista de usuarios existentes
+    this.http.get<any[]>('http://localhost:3000/users')
+      .subscribe(users => {
+        // Encontrar el ID más alto
+        const maxId = users.reduce((max, user) => user.id > max ? user.id : max, 0);
+        // Asignar el nuevo ID como el siguiente número en la secuencia
+        newUser.id = maxId + 1;
+
+        // Registrar el nuevo usuario
+        this.http.post('http://localhost:3000/users', newUser)
+          .subscribe(response => {
+            alert('Usuario registrado con éxito');
+            this.router.navigate(['/login']);
+          }, error => {
+            alert('Error al registrar el usuario');
+            console.error('Error al registrar el usuario:', error);
+          });
+      }, error => {
+        alert('Error al obtener la lista de usuarios');
+        console.error('Error al obtener la lista de usuarios:', error);
+      });
   }
 }

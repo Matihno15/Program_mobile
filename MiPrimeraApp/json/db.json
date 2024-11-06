@@ -1,0 +1,87 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "Juan_millares",
+      "password": "Matiaswekito123",
+      "name": "Juan Millares"
+    },
+    {
+      "id": "2",
+      "username": "Matias_iturriaga",
+      "password": "Matielmasvio12345@",
+      "name": "Matias Iturriaga"
+    },
+    {
+      "id": "3",
+      "username": "Franco_peldoza",
+      "email": "juanjoelmascracs@gmail.com",
+      "password": "Francoelmasvio12345@",
+      "name": "Franco Peldoza"
+    },
+    {
+      "id": "31",
+      "username": "Ignacio_gonzalez",
+      "email": "ju.millares@duocuc.cl",
+      "password": "Ignaciowekito123"
+    }
+  ],
+  "profesores": [
+    {
+      "id": "1",
+      "username": "Carlos_gomez",
+      "password": "Carloselmasvio12345@",
+      "name": "Carlos Gomez"
+    },
+    {
+      "id": "2",
+      "username": "Ana_lopez",
+      "password": "Anaelmasvio12345@",
+      "name": "Ana Lopez"
+    }
+  ],
+  "asignaturas": [
+    {
+      "id": "1",
+      "userId": 1,
+      "className": "Programacion 101",
+      "subject": "Programacion",
+      "date": "2023-10-01"
+    },
+    {
+      "id": "11",
+      "className": "Programacion 101",
+      "subject": "Programacion",
+      "date": "2023-10-01",
+      "userId": "1"
+    },
+    {
+      "id": "111",
+      "className": "Programacion 101",
+      "subject": "Programacion",
+      "date": "2024-11-06",
+      "userId": "1"
+    },
+    {
+      "id": "1111",
+      "className": "Programacion 101",
+      "subject": "Programacion",
+      "date": "2024-11-06",
+      "userId": "1"
+    },
+    {
+      "id": "11111",
+      "className": "Programacion 101",
+      "subject": "Programacion",
+      "date": "2024-11-06",
+      "userId": "1"
+    },
+    {
+      "id": "111111",
+      "className": "Programacion 101",
+      "subject": "Programacion",
+      "date": "2024-11-06",
+      "userId": "31"
+    }
+  ]
+}

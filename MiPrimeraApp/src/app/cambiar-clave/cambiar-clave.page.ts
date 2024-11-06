@@ -1,58 +1,43 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-cambiar-clave',
   templateUrl: './cambiar-clave.page.html',
   styleUrls: ['./cambiar-clave.page.scss'],
 })
-export class CambiarClavePage implements OnInit {
+export class CambiarClavePage {
   currentPassword: string = '';
   newPassword: string = '';
-  confirmPassword: string = '';
   showCurrentPassword: boolean = false;
   showNewPassword: boolean = false;
-  showConfirmPassword: boolean = false;
 
-  constructor(private router: Router) { }
+  constructor(private http: HttpClient, private router: Router) {}
 
-  ngOnInit() { }
-
-  onSubmit() {
-    if (this.currentPassword !== 'MiClav3') {
-      alert('La contraseña actual es incorrecta.');
-      return;
-    }
-
-    if (this.newPassword !== this.confirmPassword) {
-      alert('Las nuevas contraseñas no coinciden.');
-      return;
-    }
-
-    this.CambiarContra(this.currentPassword, this.newPassword);
-  }
-
-  CambiarContra(currentPassword: string, newPassword: string) {
-    // Simulación del cambio de contraseña
-    console.log('Contraseña actual:', currentPassword);
-    console.log('Nueva contraseña:', newPassword);
-
-    // Mostrar mensaje de éxito
-    alert('Contraseña cambiada exitosamente.');
-  }
-
-  MostrarcontraActual() {
+  toggleShowCurrentPassword() {
     this.showCurrentPassword = !this.showCurrentPassword;
   }
 
-  Mostrarcontranueva() {
+  toggleShowNewPassword() {
     this.showNewPassword = !this.showNewPassword;
   }
 
-  Mostrarconfirmarcontra() {
-    this.showConfirmPassword = !this.showConfirmPassword;
-  }
-
-  VolverMenuEst() {
-    this.router.navigate(['/main-estudiantes']);
+  onSubmit() {
+    const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser') ?? '{}');
+    if (loggedInUser && loggedInUser.password === this.currentPassword) {
+      const updatedUser = { ...loggedInUser, password: this.newPassword };
+      this.http.put(`http://localhost:3000/users/${loggedInUser.id}`, updatedUser)
+        .subscribe(response => {
+          localStorage.setItem('loggedInUser', JSON.stringify(updatedUser));
+          alert('Contraseña actualizada con éxito');
+          this.router.navigate(['/main-estudiantes']);
+        }, error => {
+          alert('Error al actualizar la contraseña');
+          console.error('Error al actualizar la contraseña:', error);
+        });
+    } else {
+      alert('La contraseña actual es incorrecta');
+    }
   }
 }

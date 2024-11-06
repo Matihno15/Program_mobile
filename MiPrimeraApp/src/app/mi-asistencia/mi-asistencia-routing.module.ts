@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { MiAsistenciaPage } from './mi-asistencia.page';
 
-
 const routes: Routes = [
   {
     path: '',
@@ -14,4 +13,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class MiAsistenciaPageRoutingModule {}
+export class MiAsistenciaPageRoutingModule { }

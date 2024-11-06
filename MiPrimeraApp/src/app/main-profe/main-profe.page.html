@@ -1,27 +1,31 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Menú Principal</ion-title>
+    <ion-title>Main Profesor</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content [fullscreen]="true">
   <div id="container">
-    <h3 id="qrasist">QR asistencia</h3>
+    <h3>Bienvenido, Profesor</h3>
     <ion-button (click)="mostrarQr()">
-      Código QR
+      Mostrar QR
     </ion-button>
-
-    <img *ngIf="SwQr" src="assets/Qr.png" alt="Código QR" />
-
+    <div *ngIf="SwQr" class="qr-container">
+      <img src="assets/Untitled.png" alt="Código QR" />
+    </div>
     <ion-button expand="full" color="danger" (click)="logout()">
-      <ion-icon slot="start" name="log-out-outline"></ion-icon>
       Logout
     </ion-button>
+    <h3>Listado de Estudiantes y Asistencias</h3>
+    <ion-list>
+      <ion-item *ngFor="let asistencia of asistencias">
+        <ion-label>
+          <h2>{{ asistencia.className }}</h2>
+          <p>Estudiante: {{ asistencia.studentName }}</p>
+          <p>Asignatura: {{ asistencia.subject }}</p>
+          <p>Fecha: {{ asistencia.date }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
   </div>
 </ion-content>
-
-<footer>
-  <ion-toolbar>
-    <ion-title>Duoc UC</ion-title>
-  </ion-toolbar>
-</footer>
