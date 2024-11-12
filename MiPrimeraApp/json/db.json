@@ -3,7 +3,7 @@
     {
       "id": "1",
       "username": "Juan_millares",
-      "password": "Matiaswekito123",
+      "password": "Matiaswekito1234",
       "name": "Juan Millares"
     },
     {
@@ -29,15 +29,15 @@
   "profesores": [
     {
       "id": "1",
-      "username": "Carlos_gomez",
-      "password": "Carloselmasvio12345@",
-      "name": "Carlos Gomez"
+      "username": "Patricio_yañez",
+      "password": "Patricioelmasvio12345@",
+      "name": "Patricio Yañez"
     },
     {
       "id": "2",
-      "username": "Ana_lopez",
-      "password": "Anaelmasvio12345@",
-      "name": "Ana Lopez"
+      "username": "Fabian_carvacho",
+      "password": "fabianelmasvio12345@",
+      "name": "Fabian Carvacho"
     }
   ],
   "asignaturas": [
@@ -82,6 +82,13 @@
       "subject": "Programacion",
       "date": "2024-11-06",
       "userId": "31"
+    },
+    {
+      "id": "1111111",
+      "className": "Programacion 101",
+      "subject": "Programacion",
+      "date": "2024-11-08",
+      "userId": "1"
     }
   ]
 }

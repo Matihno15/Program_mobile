@@ -22,3 +22,10 @@
 ion-content {
     --background: url('/assets/Duoc.jpg') no-repeat center center / cover;
 }
+ion-modal {
+    ion-label {
+      h2, p {
+        color: white;
+      }
+    }
+  }

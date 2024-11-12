@@ -1,11 +1,13 @@
-#duoclogo{
+#duoclogo {
     width: 100px;
     height: auto;
 }
+
+/* Contenedor principal */
 #container {
     width: 80%;
     max-width: 500px;
-    margin: 0 auto; 
+    margin: 0 auto;
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
     padding: 20px;
@@ -14,11 +16,46 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
-#h3asist{
+
+/* Título de asistencias */
+#h3asist {
     text-align: center;
     margin-bottom: 20px;
+    color: #333; /* Ajuste de color para mejorar visibilidad */
 }
 
+/* Fondo de ion-content */
 ion-content {
     --background: url('/assets/Duoc.jpg') no-repeat center center / cover;
+}
+
+/* Texto de asignatura */
+.asignatura-text {
+    color: white;
+}
+
+/* Estilos para pantallas grandes */
+@media (min-width: 768px) {
+    #container {
+        width: 60%;        /* Reduce el ancho para pantallas grandes */
+        max-width: 700px;  /* Ajusta el máximo ancho */
+    }
+    
+    #duoclogo {
+        width: 120px;      /* Ajusta el tamaño de logo en escritorio */
+        margin-right: 20px;
+    }
+
+    ion-toolbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    /* Ajustes del contenedor y el logo en pantallas grandes */
+    #container {
+        padding: 30px;
+        top: 10%;          /* Ajusta el posicionamiento en escritorio */
+        transform: translate(-50%, 0);
+    }
 }

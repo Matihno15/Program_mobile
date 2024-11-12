@@ -11,6 +11,7 @@ export class MainProfesorPage implements OnInit {
   SwQr: boolean = false;
   asistencias: any[] = [];
   users: any[] = [];
+  isModalOpen = false;
 
   constructor(private router: Router, private http: HttpClient) {}
 
@@ -54,5 +55,9 @@ export class MainProfesorPage implements OnInit {
   getStudentName(userId: number): string {
     const user = this.users.find(user => user.id === userId);
     return user ? user.name : 'Desconocido';
+  }
+
+  setOpen(isOpen: boolean) {
+    this.isModalOpen = isOpen;
   }
 }

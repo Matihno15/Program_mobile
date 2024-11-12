@@ -16,16 +16,31 @@
     <ion-button expand="full" color="danger" (click)="logout()">
       Logout
     </ion-button>
-    <h3>Listado de Estudiantes y Asistencias</h3>
-    <ion-list>
-      <ion-item *ngFor="let asistencia of asistencias">
-        <ion-label>
-          <h2>{{ asistencia.className }}</h2>
-          <p>Estudiante: {{ asistencia.studentName }}</p>
-          <p>Asignatura: {{ asistencia.subject }}</p>
-          <p>Fecha: {{ asistencia.date }}</p>
-        </ion-label>
-      </ion-item>
-    </ion-list>
+    <ion-button expand="full" (click)="setOpen(true)">Ver Asistencias</ion-button>
   </div>
+
+  <ion-modal [isOpen]="isModalOpen">
+    <ng-template>
+      <ion-header>
+        <ion-toolbar>
+          <ion-title>Listado de Estudiantes y Asistencias</ion-title>
+          <ion-buttons slot="end">
+            <ion-button (click)="setOpen(false)">Cerrar</ion-button>
+          </ion-buttons>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content class="ion-padding">
+        <ion-list>
+          <ion-item *ngFor="let asistencia of asistencias">
+            <ion-label>
+              <h2>{{ asistencia.className }}</h2>
+              <p>Estudiante: {{ asistencia.studentName }}</p>
+              <p>Asignatura: {{ asistencia.subject }}</p>
+              <p>Fecha: {{ asistencia.date }}</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
 </ion-content>

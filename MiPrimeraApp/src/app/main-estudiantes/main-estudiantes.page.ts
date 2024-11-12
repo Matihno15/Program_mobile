@@ -26,7 +26,7 @@ export class MainEstudiantesPage implements OnInit {
 
   logout() {
     localStorage.removeItem('loggedInUser');
-    this.router.navigate(['/login']);
+    this.router.navigate(['/login'], { replaceUrl: true });  // <--- Cambio aquí
   }
 
   goBack() {

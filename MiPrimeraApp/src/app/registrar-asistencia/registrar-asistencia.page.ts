@@ -24,10 +24,14 @@ export class RegistrarAsistenciaPage {
     });
   }
 
+  navigateToMain() {
+    this.router.navigate(['/main']);
+  }
+
   handleQrCodeResult(result: string) {
     try {
       const qrData = JSON.parse(result);
-      const currentDate = new Date().toISOString().split('T')[0]; // Obtener la fecha actual en formato YYYY-MM-DD
+      const currentDate = new Date().toISOString().split('T')[0]; 
       this.attendanceForm.patchValue({
         className: qrData.className,
         subject: qrData.subject,
@@ -46,21 +50,21 @@ export class RegistrarAsistenciaPage {
       return;
     }
 
-    const newAttendance = this.attendanceForm.getRawValue(); // Obtener los valores del formulario, incluyendo los campos deshabilitados
+    const newAttendance = this.attendanceForm.getRawValue(); 
     const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser') ?? '{}');
 
     if (loggedInUser && loggedInUser.id) {
       newAttendance.userId = loggedInUser.id;
 
-      // Obtener la lista de asignaturas existentes
+      
       this.http.get<any[]>('http://localhost:3000/asignaturas')
         .subscribe(asignaturas => {
-          // Encontrar el ID más alto
+          
           const maxId = asignaturas.reduce((max, asignatura) => asignatura.id > max ? asignatura.id : max, 0);
-          // Asignar el nuevo ID como el siguiente número en la secuencia
+          
           newAttendance.id = maxId + 1;
 
-          // Registrar la nueva asignatura
+          
           this.http.post('http://localhost:3000/asignaturas', newAttendance)
             .subscribe(response => {
               alert('Asistencia registrada con éxito');

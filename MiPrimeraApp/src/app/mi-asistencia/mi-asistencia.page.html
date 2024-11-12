@@ -1,6 +1,9 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Mi Asistencia</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/main-estudiantes"></ion-back-button>
+    </ion-buttons>
+    <img src="assets/DuocLogo.png" alt="No disponible" id="duoclogo">
   </ion-toolbar>
 </ion-header>
 
@@ -10,9 +13,9 @@
     <ion-list>
       <ion-item *ngFor="let asistencia of asistencias">
         <ion-label>
-          <h2>{{ asistencia.className }}</h2>
-          <p>Asignatura: {{ asistencia.subject }}</p>
-          <p>Fecha: {{ asistencia.date }}</p>
+          <h2 class="asignatura-text">{{ asistencia.className }}</h2>
+          <p class="asignatura-text">Asignatura: {{ asistencia.subject }}</p>
+          <p class="asignatura-text">Fecha: {{ asistencia.date }}</p>
         </ion-label>
       </ion-item>
     </ion-list>
